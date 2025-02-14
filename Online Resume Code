@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hannah Ward - Resume</title>
     
-    <!-- Embedded CSS -->
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
             background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         header {
@@ -38,16 +48,13 @@
         }
 
         section {
-            background: white;
-            margin: 20px auto;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
-            width: 80%;
+            margin-top: 20px;
         }
 
         h2 {
             color: #2980b9;
+            border-bottom: 2px solid #2980b9;
+            padding-bottom: 5px;
         }
 
         h3 {
@@ -67,58 +74,64 @@
             border-radius: 10px;
             margin-top: 20px;
         }
+
+        footer a {
+            color: #1abc9c;
+            text-decoration: none;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
+    <div class="container">
+        <header>
+            <h1 class="name">Hannah Ward</h1>
+            <p class="title">Environmental Geoscientist | GIS Specialist</p>
+            <p class="contact">📧 Email: <a href="mailto:han_ward@tamu.edu">han_ward@tamu.edu</a> | 📞 Phone: (512) 981-8238</p>
+        </header>
 
-    <header>
-        <h1 class="name">Hannah Ward</h1>
-        <p class="title">Environmental Geoscientist | GIS Specialist</p>
-        <p class="contact">📧 Email: <a href="mailto:han_ward@tamu.edu">han_ward@tamu.edu</a> | 📞 Phone: (512) 981-8238</p>
-    </header>
+        <section class="education">
+            <h2>Education</h2>
+            <p><strong>Texas A&M University</strong> – B.S. in Environmental Geosciences</p>
+            <p>Theme & Minor: Geographic Information Science (GIS)</p>
+            <p>Expected Graduation: May 2025</p>
+        </section>
 
-    <section class="education">
-        <h2>Education</h2>
-        <p><strong>Texas A&M University</strong> – B.S. in Environmental Geosciences</p>
-        <p>Theme & Minor: Geographic Information Science (GIS)</p>
-        <p>Expected Graduation: May 2025</p>
-    </section>
+        <section class="experience">
+            <h2>Experience</h2>
 
-    <section class="experience">
-        <h2>Experience</h2>
+            <h3>GIS Project Intern – BGE Inc.</h3>
+            <p>Summer 2024</p>
+            <ul>
+                <li>Developed GIS-based solutions for infrastructure projects.</li>
+                <li>Assisted in data visualization and spatial analysis for land development.</li>
+                <li>Worked with ArcGIS and remote sensing tools for urban planning.</li>
+            </ul>
 
-        <h3>GIS Project Intern – BGE Inc.</h3>
-        <p>Summer 2024</p>
-        <ul>
-            <li>Developed GIS-based solutions for infrastructure projects.</li>
-            <li>Assisted in data visualization and spatial analysis for land development.</li>
-            <li>Worked with ArcGIS and remote sensing tools for urban planning.</li>
-        </ul>
+            <h3>Project Analysis Reviewer – Inc Digital</h3>
+            <p>Spring 2023 - Present</p>
+            <ul>
+                <li>Reviewed and optimized geospatial data for environmental impact reports.</li>
+                <li>Conducted data quality control and validation for project proposals.</li>
+                <li>Collaborated with teams to ensure GIS data accuracy and usability.</li>
+            </ul>
+        </section>
 
-        <h3>Project Analysis Reviewer – Inc Digital</h3>
-        <p>Spring 2023 - Present</p>
-        <ul>
-            <li>Reviewed and optimized geospatial data for environmental impact reports.</li>
-            <li>Conducted data quality control and validation for project proposals.</li>
-            <li>Collaborated with teams to ensure GIS data accuracy and usability.</li>
-        </ul>
-    </section>
+        <section class="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>GIS Mapping & Analysis (ArcGIS, QGIS)</li>
+                <li>Remote Sensing & Drone Surveys</li>
+                <li>Data Visualization & Environmental Reporting</li>
+                <li>Python & SQL for Geospatial Data</li>
+                <li>Spatial Data Analysis & Land Surveying</li>
+            </ul>
+        </section>
 
-    <section class="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>GIS Mapping & Analysis (ArcGIS, QGIS)</li>
-            <li>Remote Sensing & Drone Surveys</li>
-            <li>Data Visualization & Environmental Reporting</li>
-            <li>Python & SQL for Geospatial Data</li>
-            <li>Spatial Data Analysis & Land Surveying</li>
-        </ul>
-    </section>
-
-    <footer>
-        <h3>Contact & Portfolio</h3>
-        <p>View my work: <a href="https://yourportfolio.com" target="_blank">yourportfolio.com</a></p>
-    </footer>
-
+        <footer>
+            <h3>Contact & Portfolio</h3>
+            <p>View my work: <a href="https://yourportfolio.com" target="_blank">yourportfolio.com</a></p>
+        </footer>
+    </div>
 </body>
 </html>
