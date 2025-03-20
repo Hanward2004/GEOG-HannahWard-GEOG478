@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet Mobile-Friendly Map</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha384-xod2siRKEUqHd5aKnePcmtN4DbfEjDaL1xInWXPJkZswJ3tfB02er/eXkDKtYk50"
+          crossorigin=""/>
+
+    <style>
+        /* Set full viewport height for better mobile compatibility */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Leaflet Mobile-Friendly Map</h1>
+<div id="map"></div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha384-GcTU2zM9iLzI8VxfHpqPSOogZAdre7iMuvZDTtwDAGqOhMmYqNCyB9s64yJ5q6eGz"
+        crossorigin=""></script>
+
+<script>
+    // Initialize map
+    var map = L.map('map', {
+        center: [51.505, -0.09], // London
+        zoom: 13,
+        tap: false // Improves touch behavior on mobile
+    });
+
+    // Add OpenStreetMap tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Add a marker with a popup
+    L.marker([51.505, -0.09]).addTo(map)
+        .bindPopup("This map is mobile-friendly!<br> Try zooming or dragging.")
+        .openPopup();
+
+    // Detect mobile browsers and adjust zoom controls
+    if (L.Browser.mobile) {
+        alert("You're using a mobile device! Zoom gestures are enabled.");
+    }
+</script>
+
+</body>
+</html>
