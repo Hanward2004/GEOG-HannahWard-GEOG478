@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourName First Web Map</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha384-xod2siRKEUqHd5aKnePcmtN4DbfEjDaL1xInWXPJkZswJ3tfB02er/eXkDKtYk50"
+          crossorigin=""/>
+
+    <style>
+        /* Set full viewport height */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<h1>YourName First Web Map</h1>
+<div id="map"></div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha384-GcTU2zM9iLzI8VxfHpqPSOogZAdre7iMuvZDTtwDAGqOhMmYqNCyB9s64yJ5q6eGz"
+        crossorigin=""></script>
+
+<script>
+    // Initialize the map centered at Texas A&M
+    var map = L.map('map').setView([30.6129, -96.3410], 16);
+
+    // Add OpenStreetMap tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Locate and zoom to user's current location
+    map.locate({setView: true, maxZoom: 16});
+    
+    // Kyle Field - Draw a circle with a popup
+    var kyleField = L.circle([30.6103, -96.3402], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 150  // Radius in meters
+    }).addTo(map).bindPopup("Kyle Field: Home of the Aggies!");
+
+    // Custom Icons
+    var customIcon = L.icon({
+        iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-green.png', 
+        shadowUrl: 'https://leafletjs.com/examples/custom-icons/leaf-shadow.png',
+        iconSize: [38, 95],
+        shadowSize: [50, 64],
+        iconAnchor: [22, 94],
+        shadowAnchor: [4, 62],
+        popupAnchor: [-3, -76]
+    });
+
+    // O&M Building Marker with Custom Icon
+    var omBuilding = L.marker([30.6184, -96.3365], {icon: customIcon}).addTo(map)
+        .bindPopup("O&M Building: Atmospheric Sciences Department");
+
+    // Academic Building Marker with Custom Icon
+    var academicBuilding = L.marker([30.6131, -96.3412], {icon: customIcon}).addTo(map)
+        .bindPopup("Academic Building: Historic TAMU Landmark");
+
+    // Click Event: Show coordinates on map click
+    map.on('click', function(e) {
+        L.popup()
+            .setLatLng(e.latlng)
+            .setContent("Coordinates: " + e.latlng.lat.toFixed(5) + ", " + e.latlng.lng.toFixed(5))
+            .openOn(map);
+    });
+
+</script>
+
+</body>
+</html>
