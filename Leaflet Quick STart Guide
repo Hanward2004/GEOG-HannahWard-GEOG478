@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet Quick Start Guide</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha384-xod2siRKEUqHd5aKnePcmtN4DbfEjDaL1xInWXPJkZswJ3tfB02er/eXkDKtYk50"
+          crossorigin=""/>
+
+    <style>
+        /* Set the map size */
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Leaflet Quick Start Guide</h1>
+<div id="map"></div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha384-GcTU2zM9iLzI8VxfHpqPSOogZAdre7iMuvZDTtwDAGqOhMmYqNCyB9s64yJ5q6eGz"
+        crossorigin=""></script>
+
+<script>
+    // Initialize the map and set view to a chosen location and zoom level
+    var map = L.map('map').setView([51.505, -0.09], 13);
+
+    // Add OpenStreetMap tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Add a marker with a popup
+    var marker = L.marker([51.505, -0.09]).addTo(map)
+        .bindPopup("A pretty CSS3 popup.<br> Easily customizable.")
+        .openPopup();
+</script>
+
+</body>
+</html>
