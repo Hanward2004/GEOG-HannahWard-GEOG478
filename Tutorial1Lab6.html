@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet GeoJSON Tutorial</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
+    <style>
+        #mapid {
+            height: 600px;
+            width: 800px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Leaflet Tutorial 1: Using GeoJSON</h2>
+    <div id="mapid"></div>
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('mapid').setView([39.74739, -105], 4);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        var geojsonFeature = {
+            "type": "Feature",
+            "properties": {
+                "name": "Coors Field",
+                "amenity": "Baseball Stadium",
+                "popupContent": "This is where the Rockies play!"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-104.99404, 39.75621]
+            }
+        };
+
+        L.geoJSON(geojsonFeature).addTo(map);
+    </script>
+</body>
+</html>
