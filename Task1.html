@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>D3 Bar Chart</title>
+    <title>D3.js Bar Chart</title>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <style>
       #chart div {
@@ -15,8 +15,8 @@
     </style>
   </head>
   <body>
+    <h2>Simple D3.js Bar Chart</h2>
     <div id="chart"></div>
-
     <script>
       var data = [30, 86, 168, 281, 303, 365];
 
@@ -25,12 +25,8 @@
         .data(data)
         .enter()
         .append("div")
-        .style("width", function (d) {
-          return d + "px";
-        })
-        .text(function (d) {
-          return d;
-        });
+        .style("width", function(d) { return d + "px"; })
+        .text(function(d) { return d; });
     </script>
   </body>
 </html>
